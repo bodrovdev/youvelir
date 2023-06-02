@@ -131,3 +131,29 @@ import { lock, unlock } from 'tua-body-scroll-lock'
 //     })
 //   }
 // })
+
+// --- Табы
+
+window.addEventListener('load', () => {
+  if (document.querySelector('.tabs__buttons-item') === null) {
+    return;
+  }
+  else {
+    let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');
+    let tabs_items = document.querySelectorAll('.tabs__content-item-slider')
+
+    tabs_buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        tabs_buttons.forEach((button_item) => { button_item.classList.remove('tabs__buttons-item--active') })
+        button.classList.add('tabs__buttons-item--active');
+
+        tabs_items.forEach((item) => {
+          if (button.dataset.tab === item.dataset.tab) {
+            tabs_items.forEach((value) => { value.classList.remove('tabs__content-item-slider--active') });
+            item.classList.add('tabs__content-item-slider--active');
+          }
+        })
+      })
+    })
+  }
+})

@@ -85,10 +85,10 @@
 
 // Стили
 .main-nav {
+  position: relative;
+
   width: 100%;
   height: fit-content;
-
-  margin: 30px 0;
 
   z-index: 10;
 
@@ -152,12 +152,13 @@
 
   &__logo-image {
     position: relative;
-    top: 1px;
+    top: 12px;
+    transform: translateX(-65px);
   }
 
   &__logo-graphic {
     position: absolute;
-    top: 100%;
+    top: 105%;
     left: 50%;
 
     transform: translateX(-50%);

@@ -1,6 +1,8 @@
 @use "../mixins";
 
 .heading {
+  position: relative;
+
   height: 1px;
   min-height: 810px;
 
@@ -11,12 +13,75 @@
 
     height: 100%;
 
-    padding: 180px 0 0 0;
+    padding: 170px 0 0 0;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 5px;
   }
+
+  &__info-title {
+    font-family: var(--font-family-second);
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 130%;
+    color: var(--color-white);
+  }
+
+  &__info-text {
+    display: inline-block;
+
+    max-width: 575px;
+
+    font-family: var(--font-family-default);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 130%;
+    color: #b8cfec;
+  }
+
+  &__graphic {
+    position: absolute;
+    left: 333px;
+    bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__graphic-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &:nth-child(2) {
+      padding: 0 0 0 100px;
+    }
+
+    &:nth-child(3) {
+      padding: 0 0 0 197px;
+    }
+
+    &:nth-child(4) {
+      padding: 0 0 0 160px;
+    }
+  }
+
+  &__graphic-item-text {
+    display: inline-block;
+
+    max-width: 390px;
+
+    font-family: var(--font-family-default);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--color-white);
+  }
+
 }

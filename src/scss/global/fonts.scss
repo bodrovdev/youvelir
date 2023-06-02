@@ -1,0 +1,9 @@
+@use "../mixins";
+
+@include mixins.font-face('Candara', normal, 400);
+@include mixins.font-face('Candara', normal, 700);
+@include mixins.font-face('Candara', italic, 400);
+@include mixins.font-face('Candara', italic, 700);
+
+@include mixins.font-face('Palatino', normal, 400);
+@include mixins.font-face('Palatino', normal, 700);

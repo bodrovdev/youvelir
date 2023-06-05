@@ -140,7 +140,7 @@ window.addEventListener('load', () => {
   }
   else {
     let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');
-    let tabs_items = document.querySelectorAll('.tabs__content-item-slider')
+    let tabs_items = document.querySelectorAll('.tabs__content-slider-container')
 
     tabs_buttons.forEach((button) => {
       button.addEventListener('click', () => {
@@ -149,8 +149,8 @@ window.addEventListener('load', () => {
 
         tabs_items.forEach((item) => {
           if (button.dataset.tab === item.dataset.tab) {
-            tabs_items.forEach((value) => { value.classList.remove('tabs__content-item-slider--active') });
-            item.classList.add('tabs__content-item-slider--active');
+            tabs_items.forEach((value) => { value.classList.remove('tabs__content-slider-container--active') });
+            item.classList.add('tabs__content-slider-container--active');
           }
         })
       })

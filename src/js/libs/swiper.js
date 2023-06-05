@@ -39,6 +39,8 @@ import Swiper from 'swiper/bundle';
 let tabs_slider = new Swiper(".tabs__content-item-slider", {
   direction: "horizontal",
   spaceBetween: 10,
+  observer: true,
+  observeParents: true,
 
   breakpoints: {
     320: {
@@ -59,6 +61,39 @@ let tabs_slider = new Swiper(".tabs__content-item-slider", {
 
   pagination: {
     el: ".tabs__content-slider-pagination",
+    type: "progressbar",
+  },
+});
+
+window.addEventListener('load', () => {
+  tabs_slider.forEach((slider) => {
+    slider.pagination.update();
+  })
+})
+
+let celeb_slider = new Swiper(".celeb__slider", {
+  direction: "horizontal",
+  spaceBetween: 30,
+
+  breakpoints: {
+    320: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: "auto",
+    }
+  },
+
+  navigation: {
+    nextEl: '.celeb__slider-arrow--next',
+    prevEl: '.celeb__slider-arrow--prev',
+  },
+
+  pagination: {
+    el: ".celeb__slider-pagination",
     type: "progressbar",
   },
 });

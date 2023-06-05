@@ -100,7 +100,7 @@
   }
 
   &__content-slider-wrapper {
-    padding: 0 0 60px 0;
+    padding: 0 0 6px 0;
   }
 
   &__content-slider-slide {
@@ -135,7 +135,7 @@
     top: auto !important;
     bottom: 0 !important;
 
-    height: 5px !important;
+    height: 10px !important;
 
     & .swiper-pagination-progressbar-fill {
       background-color: #a6162d !important;
@@ -144,7 +144,7 @@
 
   &__content-slider-arrows {
     position: absolute;
-    bottom: 115px;
+    bottom: 150px;
     left: 50%;
 
     display: flex;

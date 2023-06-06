@@ -5,6 +5,12 @@
 
   height: 1px;
   min-height: 810px;
+  overflow: hidden;
+
+  @media (min-width:320px) and (max-width:1599px) {
+    height: auto;
+    min-height: auto;
+  }
 
   &__container {
     display: flex;
@@ -14,6 +20,34 @@
     height: 100%;
 
     padding: 170px 0 0 0;
+
+    z-index: 1;
+  }
+
+  @media (min-width:320px) and (max-width:1599px) {
+    &__container {
+      padding: 85px 0;
+    }
+  }
+
+  @media (min-width:320px) and (max-width:767px) {
+    &__container {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -6%;
+        top: 0;
+
+        width: 120%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.5;
+
+        z-index: -1;
+      }
+    }
   }
 
   &__info {
@@ -22,12 +56,27 @@
     gap: 5px;
   }
 
+  @media (min-width:320px) and (max-width:1599px) {
+    &__info {
+      gap: 20px;
+
+      margin: 0 0 40px 0;
+    }
+  }
+
   &__info-title {
     font-family: var(--font-family-second);
     font-weight: 400;
     font-size: 96px;
     line-height: 130%;
     color: var(--color-white);
+  }
+
+  @media (min-width:320px) and (max-width:1599px) {
+    &__info-title {
+      font-size: 47px;
+      line-height: 80%;
+    }
   }
 
   &__info-text {
@@ -43,6 +92,12 @@
     color: #b8cfec;
   }
 
+  @media (min-width:320px) and (max-width:1599px) {
+    &__info-text {
+      font-size: 20px;
+    }
+  }
+
   &__graphic {
     position: absolute;
     left: 333px;
@@ -51,6 +106,14 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+  }
+
+  @media (min-width:320px) and (max-width:1599px) {
+    &__graphic {
+      position: relative;
+      left: auto;
+      bottom: auto;
+    }
   }
 
   &__graphic-item {
@@ -68,6 +131,26 @@
 
     &:nth-child(4) {
       padding: 0 0 0 160px;
+    }
+  }
+
+  @media (min-width:320px) and (max-width:1599px) {
+    &__graphic-item {
+      &:nth-child(1) {
+        padding: 0;
+      }
+
+      &:nth-child(2) {
+        padding: 0;
+      }
+
+      &:nth-child(3) {
+        padding: 0;
+      }
+
+      &:nth-child(4) {
+        padding: 0;
+      }
     }
   }
 

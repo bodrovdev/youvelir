@@ -11,7 +11,7 @@
   <meta name="format-detection" content="email=no">
 
   <link href="css/style.min.css?v=1.0" rel="stylesheet">
-  <title></title>
+  <title>Youvelir</title>
 </head>
 
 <body>
@@ -50,6 +50,11 @@
     <nav class="main-nav">
       <div class="main-nav__container base-container">
         <div class="main-nav__nav-menu main-nav__nav-menu--mobile" id="mobile_menu">
+
+          <figure class="main-nav__logo-image main-nav__logo-image--mobile-menu base-figure">
+            <img class="main-nav__logo-img" src="img/image/logo.png" width="70" height="40" alt="Лого">
+          </figure>
+
           <ul class="main-nav__nav-list base-list">
             <li class="main-nav__nav-item">
               <span class="main-nav__nav-item-text">Сделать первый заказ</span>
@@ -87,6 +92,11 @@
             <span class="main-nav__location-link-text">Москва, Рождественский бульвар, 9c1, офис 114</span>
           </a>
         </div>
+
+        <figure class="main-nav__logo-image main-nav__logo-image--mobile base-figure">
+          <img class="main-nav__logo-img" src="img/image/logo.png" width="70" height="40" alt="Лого">
+        </figure>
+
         <button class="main-nav__burger base-button" id="burger">
           <span class="main-nav__burger-line"></span>
         </button>
@@ -102,6 +112,14 @@
         background: url('img/image/heading.png');
         background-size: cover;
         background-repeat: no-repeat;
+      }
+
+      @media (min-width:320px) and (max-width:767px) {
+        .heading {
+          background: url('img/image/heading-mobile.png');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
       }
     </style>
 
@@ -340,7 +358,7 @@
     </div>
   </section>
 
-  <section class="about">
+  <section class="about" style="overflow-x: hidden;">
     <div class="about__container base-container">
       <h2 class="about__title base-title">Мы создаем ваш образ</h2>
       <span class="about__subtitle">Создание эксклюзивных колец ручной работы</span>
@@ -357,7 +375,7 @@
     </div>
   </section>
 
-  <section class="celeb">
+  <section class="celeb" style="overflow-x: hidden;">
     <div class="celeb__container base-container">
       <h2 class="celeb__title base-title">Хотите украшение как у звезд?</h2>
       <div class="celeb__slider-container">
@@ -414,7 +432,7 @@
     </div>
   </section>
 
-  <section class="feedback2">
+  <section class="feedback2" style="overflow-x: hidden;">
 
     <style>
       .feedback2 {
@@ -434,14 +452,14 @@
         <h2 class="feedback2__info-title base-title">У вас не получится быть незаметной</h2>
         <span class="feedback2__info-subtitle">У вас уже есть эскиз:</span>
         <div class="feedback2__info-buttons">
-          <button class="feedback2__info-button modal-with-form__button base-button" type="button">Есть эскиз</button>
+          <button class="feedback2__info-button feedback2__info-button--active modal-with-form__button base-button" type="button">Есть эскиз</button>
           <button class="feedback2__info-button modal-with-form__button base-button" type="button">Еще нет, хочу сделать</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="gallery">
+  <section class="gallery" style="overflow-x: hidden;">
     <figure class="gallery__image base-figure">
       <img class="gallery__img" src="img/image/gallery1.png" width="280" height="750" alt="#">
     </figure>
@@ -462,15 +480,93 @@
     </figure>
   </section>
 
-  <section class="feedback3">
-    <div class="feedback3__container base-container">
+  <section class="feedback3" style="overflow-x: hidden;">
 
+    <style>
+      .feedback3 {
+        background: url('img/image/feedback3-bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+
+    <div class="feedback3__container base-container">
+      <figure class="feedback3__logo-image base-figure">
+        <img class="feedback3__logo-img" src="img/image/logo.png" width="130" height="75" alt="Лого">
+      </figure>
+      <h2 class="feedback3__title base-title">Инвестиции в роскошь</h2>
+      <button class="feedback3__button modal-with-form__button base-button" type="button">Узнать стоимость</button>
     </div>
+  </section>
+
+  <section class="map" style="overflow-x: hidden;">
+    <div class="map__contacts">
+      <figure class="map__contacts-logo-image base-figure">
+        <img class="fmap__contacts-logo-img" src="img/image/logo.png" width="130" height="75" alt="Лого">
+      </figure>
+      <div class="map__contacts-column">
+        <ul class="map__contacts-column-list base-list">
+          <li class="main-nav__nav-item">
+            <span class="main-nav__nav-item-text">Сделать первый заказ</span>
+            <a class="main-nav__nav-item-link base-link" href="tel:+7 (926) 642-22-34">+7 (926) 642-22-34</a>
+          </li>
+          <li class="main-nav__nav-item">
+            <span class="main-nav__nav-item-text">Корпоративные клиенты</span>
+            <a class="main-nav__nav-item-link base-link" href="tel:+7 (495) 118-22-34">+7 (495) 118-22-34</a>
+          </li>
+          <li class="main-nav__nav-item main-nav__socials">
+            <a class="main-nav__socials-item base-link" href="#">
+              <figure class="main-nav__socials-item-image base-figure">
+                <img class="main-nav__socials-item-img" src="img/image/socials1.png" width="27" height="24" alt="Telegram">
+              </figure>
+              <span class="main-nav__socials-item-text">Telegram</span>
+            </a>
+            <a class="main-nav__socials-item base-link" href="#">
+              <figure class="main-nav__socials-item-image base-figure">
+                <img class="main-nav__socials-item-img" src="img/image/socials2.png" width="24" height="24" alt="WhatsApp">
+              </figure>
+              <span class="main-nav__socials-item-text">WhatsApp</span>
+            </a>
+            <a class="main-nav__socials-item base-link" href="#">
+              <figure class="main-nav__socials-item-image base-figure">
+                <img class="main-nav__socials-item-img" src="img/image/socials3.png" width="41" height="23" alt="Вконтакте ">
+              </figure>
+              <span class="main-nav__socials-item-text">Вконтакте</span>
+            </a>
+          </li>
+        </ul>
+        <a class="map__contacts-item base-link" href="mailto:info@mail.ru">
+          <span class="map__contacts-item-label">E-mail</span>
+          <span class="map__contacts-item-main" style="text-decoration: underline;">info@mail.ru</span>
+        </a>
+        <div class="map__contacts-item">
+          <span class="map__contacts-item-label">Наш адрес:</span>
+          <span class="map__contacts-item-main">Москва, Рождественский бульвар, 9c1, офис 114</span>
+        </div>
+      </div>
+    </div>
+    <div class="map__container">
+      <script type="text/javascript" charset="utf-8" async
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9a8f4edfbba765ec0f80af8846a0df97312a96fd705fd1f4e19d18ebec94621f&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false"></script>
+    </div>
+
   </section>
 
 </main>
 
 <footer class="page-footer">
+  <section class="footer">
+    <div class="footer__container base-container">
+      <span class="footer__copyright">© 2004 - <span class="current-year"></span> YoYou</span>
+      <a class="footer__policy base-link" href="#">Политика конфиденциальности</a>
+      <a class="footer__isart base-link" href="#">
+        <span class="footer__isart-text">Разработано</span>
+        <svg class="footer__isart-icon" width="52" height="22" aria-hidden="true">
+          <use href="img/icon/sprite.svg#isart-icon"></use>
+        </svg>
+      </a>
+    </div>
+  </section>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

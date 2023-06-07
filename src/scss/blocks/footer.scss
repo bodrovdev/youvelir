@@ -5,10 +5,22 @@
 
   padding: 0 0 20px 0;
 
+  @include mixins.respond-to(notDesktop) {
+    padding: 20px 0;
+  }
+
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  @media (min-width:320px) and (max-width:600px) {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
   }
 
   &__copyright,

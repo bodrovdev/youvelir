@@ -21,8 +21,16 @@
     left: 140px;
     bottom: 0;
 
+    z-index: 2;
+
     @include mixins.respond-to(notDesktop) {
       display: none;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1599px) {
+    &__image {
+      left: 5%;
     }
   }
 

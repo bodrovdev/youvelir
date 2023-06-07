@@ -1,41 +1,5 @@
 import Swiper from 'swiper/bundle';
 
-// var init = false;
-
-// function mobile_slider() {
-//   if (window.innerWidth <= 1279) {
-//     if (!init) {
-//       init = true;
-//       var mobile_slider = new Swiper(".slider__class", {
-//         direction: "horizontal",
-//         spaceBetween: 10,
-
-//         breakpoints: {
-//           320: {
-//             slidesPerView: 1
-//           },
-//           768: {
-//             slidesPerView: 2,
-//           },
-//           1024: {
-//             slidesPerView: 3,
-//           }
-//         },
-
-//         pagination: {
-//           el: ".slider__class-pagination",
-//           clickable: true,
-//         },
-//       });
-//     }
-//   } else if (init) {
-//     mobile_slider.destroy();
-//     init = false;
-//   }
-// }
-// mobile_slider();
-// window.addEventListener("resize", mobile_slider);
-
 let tabs_slider = new Swiper(".tabs__content-item-slider", {
   direction: "horizontal",
   spaceBetween: 10,
@@ -44,7 +8,8 @@ let tabs_slider = new Swiper(".tabs__content-item-slider", {
 
   breakpoints: {
     320: {
-      slidesPerView: 1
+      slidesPerView: 1,
+      spaceBetween: 0,
     },
     768: {
       slidesPerView: 2,
@@ -68,6 +33,17 @@ let tabs_slider = new Swiper(".tabs__content-item-slider", {
 window.addEventListener('load', () => {
   tabs_slider.forEach((slider) => {
     slider.pagination.update();
+  })
+
+  let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');
+  tabs_buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      tabs_slider.forEach((slider_item) => {
+        if (button.dataset.tab === slider_item.wrapperEl.parentElement.parentElement.dataset.tab) {
+          slider_item.pagination.update();
+        }
+      })
+    })
   })
 })
 
@@ -97,3 +73,28 @@ let celeb_slider = new Swiper(".celeb__slider", {
     type: "progressbar",
   },
 });
+
+var init_gallery_slider = false;
+
+function gallery_slider() {
+  if (window.innerWidth <= 1919) {
+    if (!init_gallery_slider) {
+      init_gallery_slider = true;
+      var gallery_slider = new Swiper(".gallery__slider", {
+        direction: "horizontal",
+        spaceBetween: 10,
+        slidesPerView: "auto",
+
+        pagination: {
+          el: ".gallery__slider-pagination",
+          type: "progressbar",
+        },
+      });
+    }
+  } else if (init_gallery_slider) {
+    gallery_slider.destroy();
+    init_gallery_slider = false;
+  }
+}
+gallery_slider();
+window.addEventListener("resize", gallery_slider);

@@ -242,7 +242,7 @@
 
   @media (min-width:320px) and (max-width: 1599px) {
     &__nav-menu--mobile {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
 
@@ -251,7 +251,7 @@
       align-items: flex-start;
 
       width: 50vh;
-      height: 100vh;
+      height: 100%;
       background-color: var(--color-white);
       overflow: auto;
       -webkit-overflow-scrolling: touch;

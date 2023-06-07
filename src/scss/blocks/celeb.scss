@@ -12,6 +12,11 @@
     text-transform: uppercase;
 
     margin: 0 0 50px 0;
+
+    @include mixins.respond-to(notDesktop) {
+      font-size: 30px;
+      line-height: 80%;
+    }
   }
 
   &__slider-container {
@@ -27,6 +32,25 @@
   &__slider-slide {
     width: 400px;
     height: 535px;
+
+    @include mixins.respond-to(notDesktop) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__slider-slide-image {
+    @include mixins.respond-to(notDesktop) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__slider-slide-img {
+    @include mixins.respond-to(notDesktop) {
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__slider-pagination {
@@ -55,6 +79,10 @@
     pointer-events: none;
 
     transform: translate(-50%, -50%);
+
+    @include mixins.respond-to(notDesktop) {
+      display: none;
+    }
   }
 
   &__slider-arrow {

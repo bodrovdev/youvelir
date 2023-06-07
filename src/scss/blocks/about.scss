@@ -18,6 +18,13 @@
     color: var(--color-black);
     text-align: center;
     text-transform: uppercase;
+
+    @include mixins.respond-to(notDesktop) {
+      font-size: 30px;
+      line-height: 80%;
+
+      margin: 0 0 30px 0;
+    }
   }
 
   &__subtitle {
@@ -34,6 +41,13 @@
     text-transform: uppercase;
 
     margin: 0 0 80px 0;
+
+    @include mixins.respond-to(notDesktop) {
+      font-size: 25px;
+      line-height: 80%;
+
+      margin: 0 0 50px 0;
+    }
   }
 
   &__graphic {
@@ -45,15 +59,33 @@
 
     width: 100%;
     height: fit-content;
+
+    @include mixins.respond-to(notDesktop) {
+      display: block;
+
+      overflow-x: auto;
+      // -webkit-overflow-scrolling: touch;
+      // overscroll-behavior-y: contain;
+
+      padding: 0 0 20px 0;
+    }
   }
 
   &__graphic-image {
     border-bottom: 1px solid #b1b1b1;
+
+    @include mixins.respond-to(notDesktop) {
+      border: none;
+    }
   }
 
   &__graphic-logo-image {
     position: absolute;
     right: 0;
     bottom: 0;
+
+    @include mixins.respond-to(notDesktop) {
+      display: none;
+    }
   }
 }

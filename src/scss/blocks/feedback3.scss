@@ -1,8 +1,27 @@
 @use "../mixins";
 
 .feedback3 {
+  position: relative;
+
   height: 1px;
   min-height: 600px;
+
+  @include mixins.respond-to(notDesktop) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-black);
+      opacity: 0.3;
+
+      z-index: 1;
+    }
+
+  }
 
   &__container {
     display: flex;
@@ -13,10 +32,39 @@
     height: 100%;
 
     padding: 60px 0 0 0;
+
+    @include mixins.respond-to(notDesktop) {
+      justify-content: center;
+
+      padding: 0;
+    }
   }
 
   &__logo-image {
     margin: 0 0 70px 0;
+
+    z-index: 2;
+
+    @include mixins.respond-to(notDesktop) {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 160px;
+        height: 160px;
+        background-color: var(--color-white);
+        opacity: 0.7;
+        border-radius: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: -1;
+      }
+    }
   }
 
   &__title {
@@ -32,6 +80,15 @@
     text-align: center;
 
     margin: 0 0 40px 0;
+
+    z-index: 2;
+
+    @include mixins.respond-to(notDesktop) {
+      max-width: 360px;
+
+      font-size: 50px;
+      color: var(--color-white);
+    }
   }
 
   &__button {
@@ -53,6 +110,16 @@
     transition: background-color 0.1s, color 0.1s;
 
     padding: 20px 40px;
+
+    z-index: 2;
+
+    @include mixins.respond-to(notDesktop) {
+      width: 100%;
+      max-width: 350px;
+      background-color: rgba($color: #000000, $alpha: 0.3);
+
+      color: var(--color-white);
+    }
 
     &:hover {
       background-color: #c93341;

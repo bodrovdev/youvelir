@@ -31,20 +31,26 @@ let tabs_slider = new Swiper(".tabs__content-item-slider", {
 });
 
 window.addEventListener('load', () => {
-  tabs_slider.forEach((slider) => {
-    slider.pagination.update();
-  })
+  Array.isArray(tabs_slider) ?
 
-  let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');
-  tabs_buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      tabs_slider.forEach((slider_item) => {
-        if (button.dataset.tab === slider_item.wrapperEl.parentElement.parentElement.dataset.tab) {
-          slider_item.pagination.update();
-        }
+    tabs_slider.forEach((slider) => {
+      console.log(slider);
+      slider.pagination.update();
+
+      let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');
+      tabs_buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          tabs_slider.forEach((slider_item) => {
+            if (button.dataset.tab === slider_item.wrapperEl.parentElement.parentElement.dataset.tab) {
+              slider_item.pagination.update();
+            }
+          })
+        })
       })
-    })
-  })
+
+    }) :
+
+    tabs_slider.pagination.update();
 })
 
 let celeb_slider = new Swiper(".celeb__slider", {

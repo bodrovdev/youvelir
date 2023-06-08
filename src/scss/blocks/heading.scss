@@ -1,10 +1,121 @@
 @use "../mixins";
 
+@keyframes large {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(360deg) scale(1.5);
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+
+@keyframes large {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+
+@keyframes large-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(45deg) scale(0);
+    transform: rotate(45deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(405deg) scale(1.1);
+    transform: rotate(405deg) scale(1.1);
+  }
+}
+
+@keyframes large-2 {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(405deg) scale(1.1);
+  }
+}
+
+@keyframes small {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(-360deg) scale(1);
+    transform: rotate(-360deg) scale(1.5);
+  }
+}
+
+@keyframes small {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(-360deg) scale(1.5);
+  }
+}
+
 .heading {
   position: relative;
 
   height: 1px;
   min-height: 810px;
+  background-image: -webkit-image-set(url("../img/image/heading2.png") 1x);
+
+  @supports (background-image: -webkit-image-set(url("../img/image/heading2.webp") 1x)) {
+    background-image: -webkit-image-set(url("../img/image/heading2.webp") 1x);
+  }
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
   overflow: hidden;
 
   @include mixins.respond-to(notDesktop) {
@@ -12,10 +123,73 @@
     min-height: auto;
   }
 
-  // @media (min-width:320px) and (max-width:1599px) {
-  //   height: auto;
-  //   min-height: auto;
-  // }
+  @include mixins.respond-to(mobileOnly) {
+    // background-image: -webkit-image-set(url("../img/image/heading-mobile.png") 1x);
+
+    // @supports (background-image: -webkit-image-set(url("../img/image/heading-mobile.webp") 1x)) {
+    //   background-image: -webkit-image-set(url("../img/image/heading-mobile.webp") 1x);
+    // }
+
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  @media (min-width:768px) and (max-width:1365px) {
+    background-position: center;
+  }
+
+  &__bg-graphic {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include mixins.respond-to(mobileOnly) {
+      right: auto;
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
+  }
+
+  &__bg-image {
+    position: relative;
+  }
+
+  & svg#one {
+    position: absolute;
+    top: 260px;
+    right: 265px;
+    // -webkit-transform: translate(50%, 141%);
+    // transform: translate(50%, 141%);
+
+    & .group {
+      -webkit-transform: translate(42.5px, 42.5px);
+      -moz-transform: translate(42.5px, 42.5px);
+      transform: translate(42.5px, 42.5px);
+    }
+
+    & path {
+      -webkit-transform: translate(-42.50px, -42.50px);
+      -moz-transform: translate(-42.50px, -42.50px);
+      transform: translate(-42.50px, -42.50px);
+    }
+
+    & .large {
+      -webkit-animation: large 2.5s infinite;
+      -moz-animation: large 2.5s infinite;
+    }
+
+    & .large-2 {
+      -webkit-animation: large-2 2.5s infinite;
+      -moz-animation: large-2 2.5s infinite;
+    }
+
+    & .small {
+      -webkit-animation: small 2.5s infinite;
+      -moz-animation: small 2.5s infinite;
+    }
+  }
 
   &__container {
     display: flex;
@@ -29,7 +203,7 @@
     z-index: 1;
 
     @include mixins.respond-to(notDesktop) {
-      padding: 85px 0;
+      padding: 20px 0 20px 0;
     }
   }
 
@@ -61,7 +235,7 @@
     @include mixins.respond-to(notDesktop) {
       gap: 20px;
 
-      margin: 0 0 40px 0;
+      margin: 0 0 150px 0;
     }
   }
 

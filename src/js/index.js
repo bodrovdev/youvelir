@@ -1,4 +1,5 @@
 import { lock, unlock } from 'tua-body-scroll-lock'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 // --- Мобильное меню
 
@@ -46,21 +47,23 @@ window.addEventListener('load', () => {
     return;
   }
   else {
-    let modal_with_form = document.getElementById('modal_with_form');
-    let modal_with_form_close = document.querySelector('.modal-with-form__close');
-    let modal_with_form_buttons = document.querySelectorAll('.modal-with-form__button');
-    let modal_with_form_formset = document.querySelector('.modal-with-form__formset');
+    const modal_with_form = document.getElementById('modal_with_form');
+    const modal_with_form_close = document.getElementById('modal_with_form_close');
+    const modal_with_form_buttons = document.querySelectorAll('.modal-with-form__button');
+    const modal_with_form_formset = document.querySelector('.modal-with-form__formset');
 
     function closeFormModal() {
       modal_with_form.classList.remove('modal-with-form--active');
-      unlock(modal_with_form);
+      enableBodyScroll(modal_with_form);
+      // unlock(modal_with_form);
     }
 
     // - Открытие модалки с формой на нажатие кнопки
     modal_with_form_buttons.forEach((button) => {
       button.addEventListener('click', () => {
         modal_with_form.classList.add('modal-with-form--active');
-        lock(modal_with_form);
+        disableBodyScroll(modal_with_form);
+        // lock(modal_with_form);
       })
     })
 
@@ -82,55 +85,56 @@ window.addEventListener('load', () => {
     // - Подтверждение отправки модалки
     modal_with_form_formset.addEventListener('submit', (e) => {
       e.preventDefault();
-      document.querySelector('.modal-form__inner').classList.add('modal-form__inner--hidden');
-      document.querySelector('.modal-form__success').classList.add('modal-form__success--active');
+      document.querySelector('.modal-with-form__inner').classList.add('modal-with-form__inner--hidden');
+      document.querySelector('.modal-with-form__success').classList.add('modal-with-form__success--active');
     })
   }
 })
 
 // --- Модалка без формы
 
-// window.addEventListener('load', () => {
-//   if (document.getElementById('modal_without_form') === null) {
-//     return;
-//   }
-//   else {
-//     let modal_without_form = document.getElementById('modal-without-form');
-//     let modal_without_form_close = document.getElementById('modal-without-form-close');
-//     let modal_without_form_formset = document.querySelectorAll('.modal-without-form__formset');
+window.addEventListener('load', () => {
+  if (document.getElementById('modal_without_form') === null) {
+    return;
+  }
+  else {
+    const modal_without_form = document.getElementById('modal_without_form');
+    const modal_without_form_close = document.getElementById('modal_without_form_close');
+    console.log(modal_without_form_close);
+    const modal_without_form_formset = document.querySelectorAll('.modal-without-form__formset');
 
-//     function closeWithoutFormModal() {
-//       modal_without_form.classList.remove('modal-without-form--active');
-//       unlock(modal_without_form);
-//     }
+    function closeWithoutFormModal() {
+      modal_without_form.classList.remove('modal-without-form--active');
+      enableBodyScroll(modal_without_form)
+      // unlock(modal_without_form);
+    }
 
-//     // - Появление модалки без формы на событие отправка формы
-//     modal_without_form_formset.forEach((form) => {
-//       form.addEventListener('submit', (e) => {
-//         e.preventDefault();
-//         modal_without_form.classList.add('modal-without-form--active');
-//         lock(modal_without_form);
-//         document.querySelector('.modal__inner').classList.add('modal__inner--hidden');
-//         document.querySelector('.modal__success').classList.add('modal__success--active');
-//       })
-//     });
+    // - Появление модалки без формы на событие отправка формы
+    modal_without_form_formset.forEach((form) => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        modal_without_form.classList.add('modal-without-form--active');
+        disableBodyScroll(modal_without_form);
+        // lock(modal_without_form);
+      })
+    });
 
-//     // - Закрытие модалки без формы по нажатию крестика
-//     modal_without_form_close.addEventListener('click', () => {
-//       closeWithoutFormModal();
-//     })
+    // - Закрытие модалки без формы по нажатию крестика
+    modal_without_form_close.addEventListener('click', () => {
+      closeWithoutFormModal();
+    })
 
-//     // - Закрытие модалки без формы по нажатию на пустое место
-//     modal_without_form.addEventListener('click', (e) => {
-//       if (e.target !== e.currentTarget) {
-//         return;
-//       }
-//       else {
-//         closeWithoutFormModal();
-//       }
-//     })
-//   }
-// })
+    // - Закрытие модалки без формы по нажатию на пустое место
+    modal_without_form.addEventListener('click', (e) => {
+      if (e.target !== e.currentTarget) {
+        return;
+      }
+      else {
+        closeWithoutFormModal();
+      }
+    })
+  }
+})
 
 // --- Табы
 

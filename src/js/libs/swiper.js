@@ -2,22 +2,10 @@ import Swiper from 'swiper/bundle';
 
 let tabs_slider = new Swiper(".tabs__content-item-slider", {
   direction: "horizontal",
-  spaceBetween: 10,
+  spaceBetween: 20,
   observer: true,
   observeParents: true,
-
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: "auto",
-    }
-  },
+  slidesPerView: "auto",
 
   navigation: {
     nextEl: '.tabs__slider-arrow--next',
@@ -56,18 +44,7 @@ window.addEventListener('load', () => {
 let celeb_slider = new Swiper(".celeb__slider", {
   direction: "horizontal",
   spaceBetween: 30,
-
-  breakpoints: {
-    320: {
-      slidesPerView: 1
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: "auto",
-    }
-  },
+  slidesPerView: "auto",
 
   navigation: {
     nextEl: '.celeb__slider-arrow--next',

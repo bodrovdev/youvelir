@@ -18,7 +18,7 @@
 
   &__image {
     position: absolute;
-    left: 140px;
+    left: 100px;
     bottom: 0;
 
     z-index: 2;
@@ -61,12 +61,12 @@
 
     display: flex;
 
-    overflow: hidden;
+    overflow: visible;
 
     &::after {
       content: "";
       position: absolute;
-      left: 0;
+      left: -5px;
       bottom: 0;
 
       width: 100%;
@@ -74,11 +74,17 @@
       background-color: var(--color-white);
     }
 
-    @include mixins.respond-to(notDesktop) {
+    @include mixins.respond-to(mobileOnly) {
       flex-direction: column;
 
       &::after {
         display: none;
+      }
+    }
+
+    @include mixins.respond-to(tabletOnly) {
+      &::after {
+        left: -20px;
       }
     }
   }
@@ -98,40 +104,79 @@
 
     padding: 0 10px 0 0;
 
-    @include mixins.respond-to(notDesktop) {
+    @include mixins.respond-to(mobileOnly) {
       width: 100%;
 
       border-bottom: 1px solid var(--color-white);
 
       margin: 0 0 30px 0;
     }
+
+    @include mixins.respond-to(tabletOnly) {
+      width: 100%;
+
+      border-bottom: 1px solid var(--color-white);
+
+      padding: 0 20px 0 0;
+    }
   }
 
   &__info-form-submit {
+    position: relative;
+    right: -13px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
+    background-color: var(--color-white);
     border: 1px solid var(--color-white);
+    border-radius: 10px;
     cursor: pointer;
+    box-sizing: border-box;
 
     font-family: var(--font-family-default);
     font-style: italic;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 22px;
     line-height: 130%;
-    color: var(--color-white);
+    color: #c93341;
 
+    transform: skewX(-20deg);
     transition: background-color 0.3s, color 0.3s;
 
-    padding: 20px;
+    padding: 14px 20px;
 
     &:hover {
-      background-color: var(--color-white);
+      background-color: transparent;
 
-      color: #c93341;
+      color: var(--color-white);
 
       transition: background-color 0.3s, color 0.3s;
+    }
+
+    @include mixins.respond-to(mobileOnly) {
+      right: 0;
+
+      width: 100%;
+      max-width: 100%;
+
+      transform: none;
+    }
+
+    @include mixins.respond-to(tabletOnly) {
+      right: 0;
+
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+
+  &__info-form-submit-text {
+    transform: skewX(20deg);
+
+    @include mixins.respond-to(mobileOnly) {
+      transform: none;
     }
   }
 }

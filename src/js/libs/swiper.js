@@ -41,21 +41,35 @@ window.addEventListener('load', () => {
     tabs_slider.pagination.update();
 })
 
-let celeb_slider = new Swiper(".celeb__slider", {
-  direction: "horizontal",
-  spaceBetween: 30,
-  slidesPerView: "auto",
+var init_celeb_slider = false;
 
-  navigation: {
-    nextEl: '.celeb__slider-arrow--next',
-    prevEl: '.celeb__slider-arrow--prev',
-  },
+function celeb_slider() {
+  if (window.innerWidth <= 1719) {
+    if (!init_celeb_slider) {
+      init_celeb_slider = true;
+      var celeb_slider = new Swiper(".celeb__slider", {
+        direction: "horizontal",
+        spaceBetween: 30,
+        slidesPerView: "auto",
 
-  pagination: {
-    el: ".celeb__slider-pagination",
-    type: "progressbar",
-  },
-});
+        navigation: {
+          nextEl: '.celeb__slider-arrow--next',
+          prevEl: '.celeb__slider-arrow--prev',
+        },
+
+        pagination: {
+          el: ".celeb__slider-pagination",
+          type: "progressbar",
+        },
+      });
+    }
+  } else if (init_celeb_slider) {
+    celeb_slider.destroy();
+    init_celeb_slider = false;
+  }
+}
+celeb_slider();
+window.addEventListener("resize", celeb_slider);
 
 var init_gallery_slider = false;
 

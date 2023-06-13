@@ -100,7 +100,6 @@ window.addEventListener('load', () => {
   else {
     const modal_without_form = document.getElementById('modal_without_form');
     const modal_without_form_close = document.getElementById('modal_without_form_close');
-    console.log(modal_without_form_close);
     const modal_without_form_formset = document.querySelectorAll('.modal-without-form__formset');
 
     function closeWithoutFormModal() {

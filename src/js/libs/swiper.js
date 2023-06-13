@@ -22,7 +22,6 @@ window.addEventListener('load', () => {
   Array.isArray(tabs_slider) ?
 
     tabs_slider.forEach((slider) => {
-      console.log(slider);
       slider.pagination.update();
 
       let tabs_buttons = document.querySelectorAll('.tabs__buttons-item');

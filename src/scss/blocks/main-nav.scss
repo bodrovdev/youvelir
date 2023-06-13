@@ -289,6 +289,10 @@
     border: none;
 
     z-index: 20;
+
+    @include mixins.respond-to(desktopS) {
+      cursor: pointer;
+    }
   }
 
   @media (min-width:320px) and (max-width:1599px) {
